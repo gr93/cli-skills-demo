@@ -1,0 +1,49 @@
+services:
+  cli:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dev-cli-tools
+    env_file:
+      - .env
+    environment:
+      # GitHub CLI
+      - GH_TOKEN=${GH_TOKEN}
+      - GH_HOST=${GH_HOST:-}
+      
+      # Jira CLI
+      - JIRA_API_URL=${JIRA_API_URL}
+      - JIRA_AUTH_TYPE=${JIRA_AUTH_TYPE}
+      - JIRA_API_TOKEN=${JIRA_API_TOKEN}
+      - JIRA_LOGIN=${JIRA_LOGIN}
+      
+      # Confluence CLI
+      - CONFLUENCE_DOMAIN=${CONFLUENCE_DOMAIN}
+      - CONFLUENCE_USERNAME=${CONFLUENCE_USERNAME}
+      - CONFLUENCE_API_TOKEN=${CONFLUENCE_API_TOKEN}
+      - CONFLUENCE_DEFAULT_SPACE=${CONFLUENCE_DEFAULT_SPACE:-}
+      
+      # SSH/Git Configuration
+      - SSH_KEY_PATH=/root/.ssh/id_ed25519
+    
+    volumes:
+      # Mount workspace for file operations
+      - ./workspace:/workspace
+      
+      # Mount SSH keys for git authentication
+      - C:\Users\Gopal\.ssh:/root/.ssh:ro
+      
+      # Persist CLI configurations (note the dot-jira for jira CLI)
+      - gh-config:/root/.config/gh
+      - jira-config:/root/.config/.jira
+    
+    # Keep container running
+    stdin_open: true
+    tty: true
+    
+    # Restart policy
+    restart: unless-stopped
+
+volumes:
+  gh-config:
+  jira-config:

@@ -1,0 +1,21 @@
+# Environment variables
+.env
+
+# CLI configuration files (contain credentials)
+jira-config.yml
+
+# Docker volumes
+workspace/*
+!workspace/.gitkeep
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+.idea/
