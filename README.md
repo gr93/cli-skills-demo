@@ -8,7 +8,7 @@ A Dockerized environment combining three powerful CLI tools for development work
 
 ## Demo
 
-<video src="https://github.com/gr93/cli-skills-demo/raw/main/assets/demo.mp4" controls width="100%"></video>
+https://github.com/user-attachments/assets/084b7c8f-2ff6-4743-8cb2-0066fe6c16f6
 
 ## Quick Start
 
