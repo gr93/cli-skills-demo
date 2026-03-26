@@ -6,6 +6,10 @@ A Dockerized environment combining three powerful CLI tools for development work
 - **Jira CLI** - Interact with Jira from the terminal
 - **Confluence CLI** - Manage Confluence pages and content
 
+## Demo
+
+https://github.com/gr93/cli-skills-demo/assets/demo.mp4
+
 ## Quick Start
 
 ### 1. Configure Environment Variables
